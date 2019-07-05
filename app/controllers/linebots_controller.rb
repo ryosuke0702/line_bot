@@ -24,8 +24,14 @@ class LinebotsController < ApplicationController
       events.each { |event|
         case event
         when Line::Bot::Event::Message
-          case event.type
+           case event.type
           when Line::Bot::Event::MessageType::Text
+            if event.message['text'] = 'はい'
+              message = {
+                type: 'text',
+                text: 'えらい'
+              }
+            else
             message = {
               type: 'text',
               text: '勉強せえ'
