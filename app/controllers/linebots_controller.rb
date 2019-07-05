@@ -26,10 +26,17 @@ class LinebotsController < ApplicationController
         when Line::Bot::Event::Message
            case event.type
           when Line::Bot::Event::MessageType::Text
+            #elsifを増やして返事が作れる
             if event.message['text'] == "はい"
               message = {
                 type: 'text',
                 text: 'えらいぞ'
+              }
+
+            elsif event.message['text'] == "あ"
+              message = {
+                type: 'text',
+                text: 'あ？'
               }
 
             else
